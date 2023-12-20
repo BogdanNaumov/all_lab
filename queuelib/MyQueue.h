@@ -13,7 +13,7 @@ protected:
 	T* mas;
 
 public:
-	TQueue(int n = 1);
+	TQueue(int n);
 	TQueue(const TQueue <T>& q);
 	~TQueue();
 
@@ -32,7 +32,7 @@ public:
 		}
 		return os;
 	}
-	friend istream& operator>>(istream& is, const TQueue<T>& queue) {
+	friend istream& operator>>(istream& is, TQueue<T>& queue) {
 		for (int i = 0; i < queue.size; i++) {
 			is >> queue.mas[i];
 			queue.count++;
@@ -45,7 +45,7 @@ public:
 template <class T>
 TQueue<T>::TQueue(int n) {
 	if (n < 1)
-		throw "Wrong size";
+		throw "Некорректный размер";
 	size = n;
 	start = end = count = 0;
 	mas = new T[n];
@@ -71,7 +71,7 @@ template <class T>
 void TQueue<T>::Push(T a)
 {
 	if (IsFull())
-		throw "Queue is full";
+		throw "Очередь заполнена";
 	mas[end] = a;
 	end = (end + 1) % size;
 	count += 1;
@@ -80,7 +80,7 @@ void TQueue<T>::Push(T a)
 template <class T>
 T TQueue<T>::Get() {
 	if (IsEmpty()) {
-		throw "Queue is empty";
+		throw "Очередь пуста";
 	}
 
 	T result = mas[start];
