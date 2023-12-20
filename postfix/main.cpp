@@ -11,7 +11,6 @@ int main()
     cout << "Введите выражение :"<<endl;
     cin >> exprStr;
     TArithmeticExpression expr(exprStr);
-    cout << "В инфиксной форме:" << expr.GetInfix() << endl;
     cout << "В постфиксной форме: " << expr.GetPostfix() << endl;
     vector<char> operands = expr.GetOperands();
 

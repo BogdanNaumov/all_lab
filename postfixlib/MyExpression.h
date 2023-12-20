@@ -12,7 +12,6 @@ using namespace std;
 
 class TArithmeticExpression
 {
-	string infix;
 	string postfix;
 	vector<char> lexems;
 	map<char, int> priority;
@@ -22,10 +21,6 @@ class TArithmeticExpression
 
 public:
 	TArithmeticExpression(string infx);
-	string GetInfix() const 
-	{
-		return infix;
-	}
 	string GetPostfix();
 	vector<char> GetOperands() const;
 	double Calculate();//const map<char, double>& values);
