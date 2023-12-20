@@ -19,7 +19,7 @@ void TArithmeticExpression::Parse()
 void TArithmeticExpression::ToPostfix()
 {
     Parse();
-    TStack<char> st;
+    TStack<char> st(60);
     char stackItem;
     int count = 0;
     char item;
@@ -110,18 +110,10 @@ vector<char> TArithmeticExpression::GetOperands() const
     return op;
 }
 
-double TArithmeticExpression::Calculate()//const map<char, double>& values)
+double TArithmeticExpression::Calculate()
 {
-    /*for (auto& val : values)
-    {
-        try
-        {
-            operands.at(val.first) = val.second;
-        }
-        catch (out_of_range& e) {}
-    }*/
 
-    TStack<double> st;
+    TStack<double> st(60);
     double leftOperand, rightOperand;
     int k = 0;
     for (char lexem : postfix)

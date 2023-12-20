@@ -1,4 +1,4 @@
-#include "..\expressionlib\MyExpression.h"
+#include "..\postfixlib\MyExpression.h"
 #include <gtest.h>
 
 TEST(TArithmeticExpressionTest, )
