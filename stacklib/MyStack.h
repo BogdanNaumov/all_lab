@@ -12,7 +12,7 @@ protected:
 	int top;
 	T* mas;
 public:
-	TStack(int n = 60);
+	TStack(int n);
 	TStack(TStack<T>& stack);
 	~TStack();
 
@@ -36,9 +36,8 @@ public:
 		return os;
 	}
 
-	friend istream& operator>>(istream& is, const TStack<T>& stack)
+	friend istream& operator>>(istream& is,  TStack<T>& stack)
 	{
-
 		for (int i = 0; i < stack.size; i++) {
 			is >> stack.mas[i];
 			stack.top++;
@@ -51,7 +50,7 @@ public:
 template <class T>
 TStack<T>::TStack(int n) {
 	if (n < 1)
-		throw "Wrong size";
+		throw "Некорректный размер";
 	size = n;
 	top = 0;
 	mas = new T[size];
@@ -73,7 +72,7 @@ TStack<T>::~TStack() {
 template <class T>
 void TStack<T>::Push(T a) {
 	if (IsFull()) {
-		throw "Stack overflow";
+		throw "Стек заполнен";
 	}
 	mas[top] = a;
 	top++;
@@ -83,7 +82,7 @@ template<class T>
 T TStack<T>::Pop()
 {
 	if (IsEmpty())
-		throw "Stack is empty";
+		throw "Стек пуст";
 	top--;
 	return mas[top];
 }
@@ -91,7 +90,7 @@ T TStack<T>::Pop()
 template <class T>
 T TStack<T>::TopView() {
 	if (IsEmpty()) {
-		throw "Stack is empty";
+		throw "Стек пуст";
 	}
 	return mas[top-1];
 }

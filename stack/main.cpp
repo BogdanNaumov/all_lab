@@ -1,47 +1,82 @@
 #include <iostream>
+#include<Windows.h>
+#include<conio.h>
+#include<stdlib.h>
 #include "MyStack.h"
 using namespace std;
+
+HANDLE hConsole;
+
+//cout << "\n1. Добавить элемент\n";
+//cout << "2. Извлечь элемент\n";
+//cout << "3. Посмотреть верхний элемент\n";
+//cout << "4. Размер\n";
+//cout << "5. Вывести стек\n";
+//cout << "6. Выход\n";
+//cout << "Ввод: ";
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    int num = 0, el, size;
-    cout << "*Создание стека*\nВведите размер: ";
-    cin >> size;
-    TStack<int> stack(size);
-    while (num != 6)
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 2);
+    int tmp_size = 0, tmp_num=0,tmp_element=0;
+    cout << "Какой длинны хотите создать стек: ";
+    cin >> tmp_size;
+    if (tmp_size<1 || tmp_size>100) { throw invalid_argument("Некорректное значение размера!"); }
+    system("cls");
+    cout << "Поочерёдно введите элементы стека: ";
+    TStack<int> tmp(tmp_size);
+    cin >> tmp;
+    system("cls");
+
+    while (tmp_num!=6) 
     {
-        cout << "\n1. Добавить элемент\n";
-        cout << "2. Извлечь элемент\n";
-        cout << "3. Посмотреть верхний элемент\n";
-        cout << "4. Размер\n";
-        cout << "5. Вывести стек\n";
-        cout << "6. Выход\n";
-        cout << "Ввод: ";
-        cin >> num;
-        cout << endl;
-        switch (num)
+        cout << "    Работа со стеком" << endl;
+        SetConsoleTextAttribute(hConsole, 3);
+        cout << "1 - Добавить Элемент" << endl;
+        cout << "2 - Извлечь Элемент" << endl;
+        cout << "3 - Элемент на вершине" << endl;
+        cout << "4 - Размер стека" << endl;
+        cout << "5 - Вывод стека" << endl;
+        cout << "6 - Закончить" << endl;
+        cout << endl << "Ввод: ";
+        cin >> tmp_num;
+        switch (tmp_num)
         {
         case 1:
+            system("cls");
             cout << "Введите элемент: ";
-            cin >> el;
-            stack.Push(el);
+            cin >> tmp_element;
+            tmp.Push(tmp_element);
+            system("cls");
             break;
         case 2:
-            stack.Pop();
+            tmp.Pop();
+            system("cls");
             break;
         case 3:
-            stack.TopView();
+            system("cls");
+            cout << "Элемент на вершине стека - " << tmp.TopView();
+            system("pause");
+            system("cls");
             break;
         case 4:
-            stack.GetSize();
+            system("cls");
+            cout << "Ваш стек состоит из " << tmp.GetSize() << " Элементов"<<endl;
+            system("pause");
+            system("cls");
             break;
         case 5:
-            cout << "Содержимое стека: " << stack << endl;
+            system("cls");
+            cout << tmp<<endl;
+            system("pause");
+            system("cls");
+            break;
         default:
-            cout << "Такого пункта нет" << endl;
             break;
         }
+
     }
 
 }

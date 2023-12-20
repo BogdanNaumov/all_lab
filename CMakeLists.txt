@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
 
-set(PROJECT_NAME All_labs) #Создаем обычную локальную переменную с именем проекта
+set(PROJECT_NAME All_lab) #Создаем обычную локальную переменную с именем проекта
 project(${PROJECT_NAME}) # Название проекта
 
 SET(CMAKE_C_COMPILER "gcc.exe")
@@ -10,13 +10,13 @@ set(stack stack) #Переменная с именем приложения
 set(stacklib stacklib) #Переменная с именем 
 set(stacktest stacktest)
 
-set(expressionlib expressionlib)
-set(expressiontest expressiontest)
-set(expression expression)
-
 set(queue queue) 
 set(queuelib queuelib)  
 set(queuetest queuetest)
+
+set(postfix postfix)
+set(postfixlib postfixlib)
+set(postfixtest postfixtest)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
 if(NOT CMAKE_BUILD_TYPE) # проверка имеющихся у компилятора вариантов сборки
@@ -36,8 +36,8 @@ add_subdirectory(queue) #Добавляем директорию с под-CMake
 add_subdirectory(queuelib)
 add_subdirectory(queuetest)
 
-add_subdirectory(expression)
-add_subdirectory(expressionlib)
-add_subdirectory(expressiontest)
+add_subdirectory(postfix)
+add_subdirectory(postfixlib)
+add_subdirectory(postfixtest)
 
 
