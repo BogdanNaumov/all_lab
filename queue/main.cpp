@@ -4,11 +4,7 @@
 #include<stdlib.h>
 #include "MyQueue.h"
 HANDLE hConsole;
-//cout << "\n1. Добавить элемент в очередь\n";
-//cout << "2. Извлечь элемент из очереди\n";
-//cout << "3. Размер очереди\n";
-//cout << "4. Вывести содержимое очереди\n";
-//cout << "5. Выход\n";
+
 
 int main()
 {

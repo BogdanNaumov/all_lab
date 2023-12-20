@@ -5,7 +5,7 @@ TEST(TStack, can_create_stack_with_positive_size) {
     ASSERT_NO_THROW(TStack<int> s(5));
 }
 
-TEST(TStack, can_create_stack_with_negative_size) {
+TEST(TStack, cant_create_stack_with_negative_size) {
     ASSERT_ANY_THROW(TStack<int> s(-5));
 }
 

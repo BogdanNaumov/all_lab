@@ -7,14 +7,6 @@ using namespace std;
 
 HANDLE hConsole;
 
-//cout << "\n1. Добавить элемент\n";
-//cout << "2. Извлечь элемент\n";
-//cout << "3. Посмотреть верхний элемент\n";
-//cout << "4. Размер\n";
-//cout << "5. Вывести стек\n";
-//cout << "6. Выход\n";
-//cout << "Ввод: ";
-
 int main()
 {
     setlocale(LC_ALL, "Russian");
